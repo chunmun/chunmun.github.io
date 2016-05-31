@@ -46,7 +46,7 @@ gameLogViewer.controller('GetLogController', function($scope, $http, $location) 
     var game = $location.search().game;
 
     if (game) {
-        $http.get('games/' + game).success(function(data) {
+        $http.get('games/' + game, { headers: { 'Accept-Encoding': 'gzip' }}).success(function(data) {
             loadPageData(data);
         });
     }
